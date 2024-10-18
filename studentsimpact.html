@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/DtzhGqz/Kids-Learn-Code-1.png">
-    <script src="script.js" defer></script> 
+    <script src="script.js" defer></script>
     <div class="menu-bar">
-          <ul>
+        <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/aboutus">About</a></li>
             <li><a href="#">Impact <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-menu">
                     <ul>
-                      <li><a href="/studentsimpact">Students' Impact</a></li>
-                      <li><a href="/volunteersimpact">Portfolio</a></li>
-                  </div>
+                        <li><a href="/studentsimpact">Students' Impact</a></li>
+                        <li><a href="/volunteersimpact">Portfolio</a></li>
+                </div>
             </li>
             <li><a href="/typesofworkshops">Types of Workshops</a>
             </li>
             <li><a href="#">Contact us</a></li>
-          </ul>
+        </ul>
     </div>
     <br>
-        <!-- Hotjar Tracking Code for https://web.kidslearncode.org/ -->
+    <!-- Hotjar Tracking Code for https://web.kidslearncode.org/ -->
     <script>
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -36,7 +36,7 @@
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
-        <style>
+    <style>
 
         h2 {
             color: #2980b9;
@@ -78,35 +78,56 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>IMPACT: Empowering Students from All Backgrounds</h1>
-    </header>
-    <section class="intro">
+<header>
+    <h1>IMPACT: Empowering Students from All Backgrounds</h1>
+</header>
+<section class="intro">
     <p>Yearly, Kids Learn Code organises a free coding workshop to help students from all backgrounds who are interested in learning coding to join us for our virtual workshop. This virtual workshop is conducted by experienced student trainers, ensuring that learning is fun through engaging quizzes and interactions.</p>
-    </section>
-    
-    <div class="stats">
-        <div class="stat">
-            <h2>&gt; 200+</h2>
-            <p>Students participated in our workshops from 2022-2023</p>
-        </div>
-        <div class="stat">
-            <h2>&gt; 70%</h2>
-            <p>Students who agree/strongly agree that our online workshops were enjoyable</p>
-        </div>
+</section>
+
+<div class="stats">
+    <div class="stat">
+        <h2 data-target="200">0+</h2>
+        <p>Students participated in our workshops from 2022-2023</p>
     </div>
-    <section class="timeline">
-        <img src="https://i.ibb.co/59j3kNT/media.png" width="427" height="251">
-        <div class="quote">
-            <p>"My daughter was lucky to hear about this course and decided to try it out with her classmate. They were apprehensive at first, but after the first lesson, she was elated. The facilitators were patient and knowledgeable, making the course fun and informative."</p>
-            <p><strong>- Kannagi Marcelino</strong></p>
-        </div>
-    
-        <div class="quote">
-            <p>"The workshop exceeded all my expectations; the instructors engaged the children well and demonstrated patience throughout the sessions. My daughter was actively engaged and learned basic coding skills."</p>
-            <p><strong>- Mrs Tay-Phua Ei Ling</strong></p>
-        </div>
-    </section>
-    <script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
+    <div class="stat">
+        <h2 data-target="70">0%</h2>
+        <p>Students who agree/strongly agree that our online workshops were enjoyable</p>
+    </div>
+</div>
+<section class="timeline">
+    <img src="https://i.ibb.co/59j3kNT/media.png" width="427" height="251">
+    <div class="quote">
+        <p>"My daughter was lucky to hear about this course and decided to try it out with her classmate. They were apprehensive at first, but after the first lesson, she was elated. The facilitators were patient and knowledgeable, making the course fun and informative."</p>
+        <p><strong>- Kannagi Marcelino</strong></p>
+    </div>
+
+    <div class="quote">
+        <p>"The workshop exceeded all my expectations; the instructors engaged the children well and demonstrated patience throughout the sessions. My daughter was actively engaged and learned basic coding skills."</p>
+        <p><strong>- Mrs Tay-Phua Ei Ling</strong></p>
+    </div>
+</section>
+<script>document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.stat h2');
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 100; // Adjust increment to control the speed
+
+        const updateCounter = () => {
+            const currentValue = +counter.innerText.replace(/\D/g, ''); // Remove non-numeric characters
+            if (currentValue < target) {
+                counter.innerText = Math.ceil(currentValue + increment) + (counter.innerText.includes('%') ? '%' : '+');
+                setTimeout(updateCounter, 10); // Adjust the timeout for speed
+            } else {
+                counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+            }
+        };
+
+        updateCounter();
+    });
+});</script>
+<script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
 </body>
 </html>
+
