@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timeline ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .timeline li {
+            background: #f3f3f3;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            flex: 0 0 auto;
+        }
+
+        .timeline li strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
     <title>Kids Learn Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/DtzhGqz/Kids-Learn-Code-1.png">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script> 
+    <script src="script.js" defer></script>
     <div class="menu-bar">
       <ul>
         <li><a href="/">Home</a></li>
@@ -17,6 +57,7 @@
                 <ul>
                   <li><a href="/studentsimpact">Students' Impact</a></li>
                   <li><a href="/volunteersimpact">Portfolio</a></li>
+                </ul>
               </div>
         </li>
         <li><a href="/typesofworkshops">Types of Workshops</a>
@@ -39,7 +80,7 @@
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/7ef3e32024ab6b7dd4fddc54e/66b6eabec7f5a16b87ed5b43d.js");</script>
 </head>
 
-    
+
 <body>
     <header>
         <h1>Kids Learn Code</h1>
@@ -76,5 +117,6 @@
         <p>If you or your organisation/company wants to help contribute to running this course, do contact us at partnerships@kidslearncode.org!</p>
     </footer>
     <script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
+
 </body>
 </html>
