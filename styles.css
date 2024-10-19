@@ -22,12 +22,76 @@ header {
     text-align: center;
 }
 
-.intro, .skills-developed, .timeline {
+.intro, .skills-developed, .timeline, .feedbacks {
+    position: relative;
     margin: 20px;
     padding: 15px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.feedbacks::after{
+    content:'';
+    position: absolute;
+    width:6px;
+    height:100%;
+    background: #fff;
+    top:0;
+    left:50%;
+    margin-left: -3px;
+    z-index: -1;
+}
+
+
+.timeline {
+    padding-left: 40px;
+}
+
+.timeline h2 {
+    margin-bottom: 20px;
+}
+
+.timeline ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline ul::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ddd;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #4285f4;
+    border-radius: 50%;
+}
+
+.timeline li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.timeline li p {
+    margin: 5px 0 0;
+    color: #666;
 }
 
 h2 {
@@ -218,11 +282,7 @@ footer {
     }
 }
 
-.timeline{
-    position:relative;
-    max-width: 1200px;
-    margin:100px auto;
-}
+
 
 .container{
     padding: 10px, 50px;

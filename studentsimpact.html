@@ -95,7 +95,7 @@
         <p>Students who agree/strongly agree that our online workshops were enjoyable</p>
     </div>
 </div>
-<section class="timeline">
+<section class="feedbacks">
     <img src="https://i.ibb.co/59j3kNT/media.png" width="427" height="251">
     <div class="quote">
         <p>"My daughter was lucky to hear about this course and decided to try it out with her classmate. They were apprehensive at first, but after the first lesson, she was elated. The facilitators were patient and knowledgeable, making the course fun and informative."</p>
@@ -118,7 +118,7 @@
             const currentValue = +counter.innerText.replace(/\D/g, ''); // Remove non-numeric characters
             if (currentValue < target) {
                 counter.innerText = Math.ceil(currentValue + increment) + (counter.innerText.includes('%') ? '%' : '+');
-                setTimeout(updateCounter, 10); // Adjust the timeout for speed
+                setTimeout(updateCounter, 50); // Adjust the timeout for speed
             } else {
                 counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
             }
