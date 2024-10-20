@@ -433,7 +433,14 @@ header {
 }
 
 h2 {
-    color: #00639A;
+    color: #2980b9;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
 }
 
 ul {
