@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact of Kids Learn Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-color: black;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<style>
+    header{
+        padding-top: 5em;
+        display: flex;
+        justify-content: center;
+    }
+
+    h2 {
+        color: #2980b9;
+        font-size: 2em;
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+        animation-delay: 0.4s;
+    }
+
+    .stat {
+        background-color: #ecf0f1;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        width: 30%;
+
+    }
+
+    .quote {
+        border-left: 4px solid #2980b9;
+        padding-left: 20px;
+        margin-top: 20px;
+        font-style: italic;
+    }
+
+    footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9em;
+    }
+    h3{
+        font-size: 1.5em;
+        font-family: BarlowSemiCondensedBold;
+    }
+</style>
+</head>
+<body>
+<header>
+ 
+<section class="header">
+    <div class="typewriter">
+        <h1 style="font-size: 2em;">Empowering Students</h1>
+        <p>From all Backgrounds</p>
+    </div>
+</section>
+</header>
+<section class="intro">
+<p>Yearly, Kids Learn Code organises a free coding workshop to help students from all backgrounds who are interested in learning coding to join us for our virtual workshop. This virtual workshop is conducted by experienced student trainers, ensuring that learning is fun through engaging quizzes and interactions.</p>
+</section>
+
+<div class="stats">
+<div class="stat">
+    <h2 data-target="200">0+</h2>
+    <p>Students participated in our workshops from 2022-2023</p>
+</div>
+<div class="stat">
+    <h2 data-target="70">0%</h2>
+    <p>Students who agree/strongly agree that our online workshops were enjoyable</p>
+</div>
+</div>
+<section class="feedbacks">
+<img src="https://i.ibb.co/59j3kNT/media.png" width="427" height="251">
+<div class="quote">
+    <p>"My daughter was lucky to hear about this course and decided to try it out with her classmate. They were apprehensive at first, but after the first lesson, she was elated. The facilitators were patient and knowledgeable, making the course fun and informative."</p>
+    <p><strong>- Kannagi Marcelino</strong></p>
+</div>
+
+<div class="quote">
+    <p>"The workshop exceeded all my expectations; the instructors engaged the children well and demonstrated patience throughout the sessions. My daughter was actively engaged and learned basic coding skills."</p>
+    <p><strong>- Mrs Tay-Phua Ei Ling</strong></p>
+</div>
+</section>
+<script>document.addEventListener('DOMContentLoaded', () => {
+const counters = document.querySelectorAll('.stat h2');
+
+counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const increment = target / 100; // Adjust increment to control the speed
+
+    const updateCounter = () => {
+        const currentValue = +counter.innerText.replace(/\D/g, ''); // Remove non-numeric characters
+        if (currentValue < target) {
+            counter.innerText = Math.ceil(currentValue + increment) + (counter.innerText.includes('%') ? '%' : '+');
+            setTimeout(updateCounter, 50); // Adjust the timeout for speed
+        } else {
+            counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+        }
+    };
+
+    updateCounter();
+});
+});</script>
+<script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
+</body>
+</html>
+<body>
+    
+</body>
+</html>
