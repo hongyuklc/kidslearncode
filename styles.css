@@ -711,7 +711,11 @@ main {
     border-left: 15px solid white;
     right: -15px;
 }
+.sidebar-close{
+    width: 24px;
 
+
+}
 .right-container-arrow{
     height:0;
     width:0;
