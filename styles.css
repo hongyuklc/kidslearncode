@@ -457,6 +457,7 @@ footer {
 }
 
 .nav-bar {
+
     background-color: #00639A; /* Same color as header */
     overflow: hidden;
     width: 100%;
@@ -481,6 +482,15 @@ footer {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+.joinus{
+
+
+    background-color: #4285f4;
+}
+.joinus:hover{
+
+    background-color: #4CAF50;
 }
 
 .nav-bar li a:hover {
