@@ -729,6 +729,7 @@ nav li{
 }
 
 nav a{
+    font-family: BarlowSemiCondensedBold;
     height: 100%;
     padding: 0 30px;
     text-decoration: none;
@@ -736,30 +737,47 @@ nav a{
     align-items: center;
     color:white
 }
+.sidebar a{
+    color: black;
+}
+.sidebar a:hover{
 
+    opacity: 0.5;
+    color: black;
+    background-color: white;
+}
 nav a:hover{
+    font-family: BarlowSemiCondensedBold;
+    color: black;
+    opacity: 0.5;
     background-color: white;
 }
 
 nav li:first-child{
     margin-right: auto;
+
 }
 
-.sidebar{
+.sidebar {
     position: fixed;
-    top:0;
+    top: 0;
     right: 0;
     height: 100vh;
     width: 250px;
     z-index: 999;
     backdrop-filter: blur(10px);
-    background-color: rgba(255,255,255,0.2);
-    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
-    display: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.2s ease-in-out;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+}
 
+
+.sidebar.active {
+    transform: translateX(0);
 }
 
 
