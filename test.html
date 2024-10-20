@@ -1,0 +1,62 @@
+
+<head>
+    <style>
+        nav {
+            margin: 25px;
+            background: #f9f9f9;
+            padding: 16px;
+            .menuItems {
+                list-style: none;
+                display: flex;
+
+                li {
+                margin: 50px;
+
+                a {
+                    text-decoration: dashed;
+                    color: #000000;
+                    font-size: 24px;
+                    font-weight: 900;
+                    position: relative;
+                    text-transform: uppercase;
+
+                    &::before {
+                    content: attr(data-item);
+                    transition: 0.9s;
+                    color: #5468ff;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    width: 0;
+                    overflow: hidden;
+                    }
+
+                    &:hover {
+                    &::before {
+                        width: 100%;
+                        transition: all 0.5s ease-in-out;
+                    }
+                    }
+                }
+                }
+            }
+            }
+    </style>
+</head>
+
+
+
+<section>
+  <nav>
+    <ul class="menuItems">
+      <li><a href='#' data-item='Home'>Home</a></li>
+      <li><a href='#' data-item='About'>About</a></li>
+      <li><a href='#' data-item='Projects'>Projects</a></li>
+      <li><a href='#' data-item='Blog'>Blog</a></li>
+      <li><a href='#' data-item='Contact'>Contact</a></li>
+    </ul>
+  </nav>
+
+</section>
