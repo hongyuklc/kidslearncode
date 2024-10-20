@@ -22,7 +22,7 @@ function showSidebar() {
     sidebar.style.display = 'flex';
     setTimeout(() => {
         sidebar.classList.add('active'); //Triggers slide in animation
-    }, 10);
+    }, 20);
 }
 
 function hideSidebar() {
