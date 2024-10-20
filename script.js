@@ -16,4 +16,20 @@ function includeHTML() {
         }
     });
 }
+
+function showSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.style.display = 'flex';
+    setTimeout(() => {
+        sidebar.classList.add('active'); //Triggers slide in animation
+    }, 10);
+}
+
+function hideSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.remove('active'); // Triggers slide out animation
+    setTimeout(() => {
+        sidebar.style.display = 'none';
+    }, 200);
+}
 document.addEventListener("DOMContentLoaded", includeHTML);
