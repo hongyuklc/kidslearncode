@@ -344,10 +344,11 @@ header {
 }
 
 
-.img{
+img{
     max-width: 100%;
     height: auto;
     display: block;
+    border-style: solid;
     margin: 0 auto;
     border-color: black;
     border-radius: 8px;
