@@ -285,12 +285,7 @@ main {
     transform: rotateY(180deg); /* Initially hide back face */
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #333;
-    color: white;
-}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
