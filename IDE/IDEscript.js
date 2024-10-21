@@ -7,9 +7,10 @@ require(['vs/editor/editor.main'], function () {
     const editor = monaco.editor.create(document.getElementById('code'), {
         value: `name = input("Enter your name: ")\nprint("Hello, " + name)`,
         language: 'python',
-        theme: 'vs-dark',
+        theme: 'vs-light',
         automaticLayout: true,
-        lineNumbers: "on"
+        lineNumbers: "on",
+        fontSize: '18px',
     });
 
     output.value = "Initializing...\n";
