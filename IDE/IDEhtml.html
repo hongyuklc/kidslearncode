@@ -1,4 +1,3 @@
-<!-- Python IDE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,50 +12,78 @@
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.34.0/min/vs/loader.js"></script>
   <div data-include="navbar.html"></div>
   <style>
-
-    h1{
-      font-family: "Roboto", sans-serif;
+    body {
+      background-color: #292a2f;
       color: white;
-      font-size: 14px;
+      font-family: "Roboto", sans-serif;
     }
+
     h2 {
       color: #2980b9;
       font-weight: bold;
       font-size: 2em;
-      margin-top: 0px ;
+      margin-top: 0;
     }
     .btn-custom {
       border: none;
-      width: 100px;
       background-color: #007bff;
       color: #fff;
-      border-radius: 30px;
+      border-radius: 5px;
       padding: 10px 20px;
       font-size: 1.2em;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 10px;
       transition: background-color 0.3s, box-shadow 0.3s;
     }
-
     .btn-custom:hover {
-      width: 100px;
       background-color: #0056b3;
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     }
-
     .btn-custom:active {
-      width: 100px;
       background-color: #004494;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    #editor-container {
+      display: flex;
+      flex-direction: row;
+      height: calc(100vh - 60px);
+    }
+    #code {
+      height: 100%;
+      width: 60%;
+      border: 1px solid #ddd;
+    }
+    .output-section {
+      background-color: #292a2f;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+    #output {
+      background-color: #292a2f;
+      color: #fff;
+      height: 100%;
+      border: 1px solid #ddd;
+      resize: none;
+      padding: 10px;
+    }
+    .nav-tabs {
+      background-color: #333;
+      border-bottom: none;
+    }
+    .nav-link {
+      color: #fff;
+    }
+    .nav-link.active {
+      background-color: #007bff;
+      color: #fff;
+    }
   </style>
 </head>
-
 <body>
-
-<div class="container-fluid bg-light">
+<p>Take note that the data stored through the Python program will only be stored for this session only</p>
+<div class="container-fluid">
   <div class="d-flex flex-column">
-
     <section class="input">
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -65,26 +92,23 @@
           </a>
         </li>
       </ul>
-      <div id="code" style="height: 700px; border: 1px solid #ddd;"></div>
     </section>
-    <button type="button" class="btn-custom" id="run" >
-      Run
-    </button>
-    <section class="output">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page">
-            <h4>Output</h4>
-          </a>
-        </li>
-      </ul>
-      <div>
-        <textarea id="output" name="output" class="w-100" rows="15"></textarea>
+    <div id="editor-container">
+      <div id="code"></div>
+      <div class="output-section">
+        <button type="button" class="btn-custom" id="run">Run</button>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page">
+              <h4>Output</h4>
+            </a>
+          </li>
+        </ul>
+        <textarea id="output" name="output" rows="15" readonly></textarea>
       </div>
-    </section>
+    </div>
   </div>
 </div>
-
 <script src='IDEscript.js'></script>
 </body>
 </html>
