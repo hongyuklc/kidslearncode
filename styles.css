@@ -528,15 +528,7 @@ footer {
     padding: 14px 16px;
     text-decoration: none;
 }
-.joinus{
 
-
-    background-color: #01143D;
-}
-.joinus:hover{
-
-    background-color: white;
-}
 
 .nav-bar li a:hover {
     background-color: #00557A; /* Darker shade on hover */
@@ -768,54 +760,83 @@ main {
     margin:0;
     padding:0;
 }
-
-
 nav{
-    background-color: 00639A(255, 255, 255);
-    box-sizing: 3px 3px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.topbar{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    width: 95%;
 }
 
-nav ul{
+nav ul {
+
     width: 100%;
     list-style: none;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 10px ;
+    height: 50px;
+    display: flex;
     align-items: center;
 }
 
-nav li{
-    height:50px;
-}
-
-nav a{
-    font-family: Red Rose;
+nav a {
+    font-family: 'Red Rose', sans-serif;
     height: 100%;
-    padding: 0 30px;
+    padding: 0 15px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    color:white
-}
-.sidebar a{
-    color: black;
-}
-.sidebar a:hover{
-
-    opacity: 0.5;
-    color: black;
-    background-color: white;
-}
-nav a:hover{
-    font-family: Red Rose;
-    color: black;
-    opacity: 0.5;
-    background-color: white;
+    color: #00639A;
+    font-size: 16px;
 }
 
-nav li:first-child{
+nav a:hover {
+    color: #000000;
+    background-color: #f0f0f0;
+    border-radius: 35px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav li:first-child {
     margin-right: auto;
-
 }
+
+.menu-button svg {
+    fill: #00639A;
+}
+
+.joinus a {
+    margin: 10px auto;
+    background-color: #00639A;
+    color: #ffffff;
+    width: auto;
+    height: 45px;
+    border-radius: 35px;
+}
+
+.joinus a:hover {
+    margin: 10px auto;
+    background-color: #00507A;
+    color: #ffffff;
+}
+
+
 
 .sidebar {
     position: fixed;
@@ -842,14 +863,20 @@ nav li:first-child{
 
 
 .sidebar li{
-    width:100%;
+    width:90%;
 
 }
 
 .sidebar a{
-    width:100%
+    width: 90%;
+    color: black;
 }
+.sidebar a:hover{
 
+    opacity: 0.5;
+    color: black;
+    background-color: white;
+}
 .menu-button{
     display: none;
 }
