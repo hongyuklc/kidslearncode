@@ -775,6 +775,7 @@ nav{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     width: 95%;
+
 }
 
 nav ul {
@@ -803,14 +804,14 @@ nav a {
     display: flex;
     align-items: center;
     color: #00639A;
-    font-size: 16px;
+    font-size: 19px;
+
 }
 
 nav a:hover {
     color: #000000;
     background-color: #f0f0f0;
     border-radius: 35px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 nav li:first-child {
