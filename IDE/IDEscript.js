@@ -105,7 +105,9 @@ sys.stdout = io.StringIO()
 # Define a custom input function
 def input(prompt=""):
     sys.stdout.write(prompt)
-    return js_input(prompt)
+    user_input = js_input(prompt)
+    sys.stdout.write(user_input + "\\n")  # Include the input in the output
+    return user_input
 `);
 
             pyodide.globals.set("js_input", (prompt) => {
