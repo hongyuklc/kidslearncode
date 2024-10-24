@@ -911,6 +911,9 @@ nav li:first-child {
     .menu-button{
         display: block;
     }
+    .joinus{
+        display: none;
+    }
 }
 
 @media(max-width:400px){
