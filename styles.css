@@ -765,8 +765,10 @@ nav{
     justify-content: center;
     align-items: center;
 }
-.topbar{
+.topbar {
     margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -775,7 +777,8 @@ nav{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     width: 95%;
-
+    max-width: 95%;
+    box-sizing: border-box;
 }
 
 nav ul {
