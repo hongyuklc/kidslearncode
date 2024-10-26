@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Bit.ly URL Shortener</title>
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/DtzhGqz/Kids-Learn-Code-1.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <div data-include="navbar.html"></div>
+  <style>
+    h1 {
+      font-family: 'Red Rose', sans-serif;
+      color: white;
+      text-align: center;
+      margin: 40px 0;
+      font-size: 2.5em;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      max-width: 500px;
+      display: block;
+      margin: 10px auto;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-family: BarlowSemiCondensed;
+      font-size: 1em;
+      color: #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border: 2px solid #4285f4;
+    }
+
+    button {
+      width: 80%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #00639A;
+      color: white;
+      font-family: BarlowSemiCondensed;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #00557A;
+    }
+
+    #result {
+      text-align: center;
+      margin: 20px auto;
+      font-family: 'Red Rose', sans-serif;
+      font-size: 1.2em;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+        font-family: 'Red Rose', sans-serif;
+      }
+      input[type="text"], button {
+        width: 90%;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>Custom Bit.ly URL Shortener</h1>
+<input type="text" id="urlInput" placeholder="Enter URL to shorten" />
+<input type="text" id="backhalfInput" placeholder="Enter custom back-half" />
+<input type="text" id="title" placeholder="Enter Title" />
+<button onclick="createCustomBitlink()">Shorten URL</button>
+<p id="result"></p>
+
+<script>
+  async function createCustomBitlink() {
+    const longUrl = document.getElementById('urlInput').value;
+    const customBackhalf = document.getElementById('backhalfInput').value;
+    const title = document.getElementById('title').value;
+
+    try {
+      const createResponse = await fetch('https://api-ssl.bitly.com/v4/bitlinks', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer 57d629191dd100197fc3b8cfaa56a0776d86da25`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "domain": "link.kidslearncode.org",
+          "title": title,
+          "long_url": longUrl
+        })
+      });
+
+      const createData = await createResponse.json();
+      if (createResponse.ok) {
+        const updateResponse = await fetch(`https://api-ssl.bitly.com/v4/custom_bitlinks`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer 57d629191dd100197fc3b8cfaa56a0776d86da25`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "custom_bitlink": `link.kidslearncode.org/${customBackhalf}`,
+            "bitlink_id": `${createData.id}`
+          })
+        });
+
+        const updateData = await updateResponse.json();
+
+        if (updateResponse.ok) {
+          document.getElementById('result').textContent = `Shortened URL with Custom Backhalf: ${updateData.custom_bitlink}`;
+        } else {
+          document.getElementById('result').textContent = `Error ${updateResponse.status}: ${updateData.message || 'An error occurred during backhalf customization.'}`;
+        }
+      } else {
+        let errorMessage = `Error ${createResponse.status}: ${createData.message || 'An error occurred during creation.'}\n`;
+
+        if (createData.errors && createData.errors.length > 0) {
+          errorMessage += 'Details:\n';
+          createData.errors.forEach((error, index) => {
+            errorMessage += `  Error ${index + 1}:\n    Field: ${error.field}\n    Code: ${error.error_code}\n    Message: ${error.message}\n`;
+          });
+        }
+
+        document.getElementById('result').textContent = errorMessage;
+      }
+    } catch (error) {
+      document.getElementById('result').textContent = 'Error: ' + error.message;
+    }
+  }
+</script>
+</body>
+</html>
