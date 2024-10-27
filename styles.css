@@ -813,7 +813,27 @@ nav li {
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
 }
+button {
+    width: 80%;
+    max-width: 500px;
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #00639A;
+    color: white;
+    font-family: BarlowSemiCondensed;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+button:hover {
+    background-color: #00557A;
+    transform: translateY(-2px);
+}
 #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
 }
