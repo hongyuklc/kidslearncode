@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Custom Bit.ly URL Shortener</title>
   <link rel="icon" type="image/x-icon" href="https://i.ibb.co/DtzhGqz/Kids-Learn-Code-1.png">
   <link rel="stylesheet" href="styles.css">
@@ -83,10 +85,11 @@
 <input type="text" id="urlInput" placeholder="Enter URL to shorten" />
 <input type="text" id="backhalfInput" placeholder="Enter custom back-half" />
 <input type="text" id="title" placeholder="Enter Title" />
-<button onclick="createCustomBitlink()">Shorten URL</button>
+<button class = "button" onclick="createCustomBitlink()">Shorten URL</button>
 <p id="result"></p>
 
 <script>
+
   async function createCustomBitlink() {
     const longUrl = document.getElementById('urlInput').value;
     const customBackhalf = document.getElementById('backhalfInput').value;
