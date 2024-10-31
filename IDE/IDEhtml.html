@@ -12,24 +12,10 @@
   <script src="../script.js" defer></script>
   <div data-include="../navbar.html"></div>
 
-  
-
   <style>
-
-    /*body {*/
-    /*  background-color: #292a2f;*/
-    /*  color: white;*/
-    /*  font-family: "Roboto", sans-serif;*/
-    /*}*/
-    p{
-      margin-left: 5px;
-    }
-    h2 {
-      color: #2980b9;
-      font-weight: bold;
-      font-size: 2em;
-      margin-top: 0;
-    }
+    /* Custom styling */
+    p { margin-left: 5px; }
+    h2 { color: #2980b9; font-weight: bold; font-size: 2em; margin-top: 0; }
     .btn-custom {
       border: none;
       background-color: #007bff;
@@ -37,34 +23,35 @@
       border-radius: 5px;
       padding: 10px 20px;
       font-size: 1.2em;
-
+      margin-top: -8px;
+      margin-right: 10px;
+      margin-bottom: 5px;
       transition: background-color 0.3s, box-shadow 0.3s;
     }
-    .btn-custom:hover {
-      background-color: #0056b3;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
-    .btn-custom:active {
-      background-color: #004494;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+    .btn-custom:hover { background-color: #0056b3; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); }
+    .btn-custom:active { background-color: #004494; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
     #editor-container {
       display: flex;
       flex-direction: row;
       height: calc(100vh - 60px);
     }
-    #code {
-      height: 100%;
-      width: 60%;
-      border: 1px solid #ddd;
-    }
+    #code { height: 100%; width: 60%; border: 1px solid #ddd; }
     .output-section {
-      /*background-color: #292a2f;*/
       width: 40%;
       display: flex;
       flex-direction: column;
       padding: 10px;
     }
+    .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 5px; /* Adjust this value as needed */
+    }
+    p{
+      color: white;
+    }
+
     #output {
       background-color: #292a2f;
       color: #fff;
@@ -73,36 +60,43 @@
       resize: none;
       padding: 10px;
     }
-    .nav-tabs {
-      background-color: #333;
-      border-bottom: none;
-    }
-    .nav-link {
-      color: #fff;
-    }
-    .nav-link.active {
-      background-color: #007bff;
-      color: #fff;
-    }
-    textarea{
-      font-size: 15px;
-    }
+    textarea { font-size: 15px; }
   </style>
 
 </head>
 <body>
-<p style="color: white;">Take note that the data stored through the Python program will only be stored for this session only</p>
+<p style="color: white;">Take note that the data stored through the Python program will only be stored for this session only. Your code will be auto-saved through the browser.</p>
 <div class="container-fluid">
-    <div id="editor-container">
-      <div id="code"></div>
-      <div class="output-section">
+  <div id="editor-container">
+    <div id="code"></div>
+    <div class="output-section">
+      <div class="actions">
         <button type="button" class="btn-custom" id="run">Run</button>
-        <p>Output</p>
-        <textarea id="output" name="output" rows="15" readonly></textarea>
+        <button type="button" class="btn-custom" id="save">Save</button>
       </div>
+
+      <p>Output</p>
+      <textarea id="output" name="output" rows="15" readonly></textarea>
     </div>
   </div>
 </div>
+</div>
 <script src='IDEscript.js'></script>
+
+<script>
+
+  function saveEditorContent() {
+    const editorContent = editor.getValue();
+    setCookie("pythonEditorContent", editorContent, 10000000);
+    alert("Code saved successfully!");
+  }
+
+
+
+
+
+
+    document.getElementById('save').addEventListener('click', saveEditorContent);
+</script>
 </body>
 </html>

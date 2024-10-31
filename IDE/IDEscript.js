@@ -1,11 +1,28 @@
 //DO NOT EDIT THIS SET OF CODE
 //ANY EDIT MIGHT CAUSE DISRUPTION TO THE IDE
 const output = document.getElementById("output");
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${date.toUTCString()};path=/`;
+}
+
+function getCookie(name) {
+    const nameEQ = `${name}=`;
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+}
 
 require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.34.0/min/vs' } });
 require(['vs/editor/editor.main'], function () {
+    const savedContent = getCookie("pythonEditorContent") || `name = input("Enter your name: ")\nprint("Hello, " + name)`;
     const editor = monaco.editor.create(document.getElementById('code'), {
-        value: `name = input("Enter your name: ")\nprint("Hello, " + name)`,
+        value: savedContent,
         language: 'python',
         theme: 'vs-dark',
         automaticLayout: true,
@@ -14,7 +31,9 @@ require(['vs/editor/editor.main'], function () {
     });
 
     output.value = "Initializing...\n";
-
+    editor.onDidChangeModelContent(() => {
+        setCookie("pythonEditorContent", editor.getValue(), 10000000); // Store content for 7 days
+    });
     const pythonSuggestions = [
         'def', 'class', 'import', 'from', 'for', 'while', 'if', 'else', 'elif', 'return', 'print', 'input', 'try', 'except',
         'with', 'as', 'True', 'False', 'None', 'list', 'dict', 'set', 'tuple', 'int', 'float', 'str', 'len', 'range', 'map',
