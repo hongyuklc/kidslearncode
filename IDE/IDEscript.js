@@ -31,6 +31,8 @@ require(['vs/editor/editor.main'], function () {
     });
 
     output.value = "Initializing...\n";
+    output.value += "Do Not Rely On The Browser To Store Your Code\n";
+    output.value += "KLC will not be responsible for any loss of code\n";
     editor.onDidChangeModelContent(() => {
         setCookie("pythonEditorContent", editor.getValue(), 10000000); // Store content for 7 days
     });
