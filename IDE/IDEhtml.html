@@ -84,8 +84,8 @@
 <script src='IDEscript.js'></script>
 
 <script>
-
   function saveEditorContent() {
+    alert("Code saved successfully! Please note that important code should not be stored in the browser and should be documented somewhere safe.");
     const editorContent = editor.getValue();
     setCookie("pythonEditorContent", editorContent, 10000000);
     alert("Code saved successfully!");

@@ -651,6 +651,7 @@ main {
     justify-content: center;
     text-align: center;
     transform: rotateY(180deg); /* Initially hide back face */
+    flex-direction: column;
 }
 
 
