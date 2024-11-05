@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cheatsheets</title>
+    <script src="script.js" defer></script>
+    <div data-include="navbar.html"></div>
+    <style>
+        .animation1 ol li {
+            list-style-type: decimal;
+            margin-left: 1em;
+        }
+        .animation1 h1{
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+        .animation2 ol li {
+            list-style-type: decimal;
+            margin-left: 1em;
+        }
+        .animation2 h1{
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="animation1">
+    <h1>Python Syntax</h1>
+    <ol>
+        <li><b>Comments:</b> <code># This is a comment</code></li>
+        <li><b>Variables:</b> <code>x = 10</code></li>
+        <li><b>Data Types:</b> <code>int, float, str, list, tuple, dict, set, bool</code></li>
+        <li><b>Strings:</b> <code>text = "Hello, World!"</code></li>
+        <li><b>String Concatenation:</b> <code>"Hello" + " " + "World"</code></li>
+        <li><b>Formatted Strings (f-strings):</b> <code>f"Hello {name}"</code></li>
+        <li><b>Arithmetic Operators:</b> <code>+, -, *, /, %, **, //</code></li>
+        <li><b>Comparison Operators:</b> <code>==, !=, >, <, >=, <=</code></li>
+        <li><b>Logical Operators:</b> <code>and, or, not</code></li>
+        <li><b>If Statements:</b> <code>if x > 5: print("x is greater than 5")</code></li>
+        <li><b>Else Statements:</b> <code>else: print("x is not greater than 5")</code></li>
+        <li><b>Elif Statements:</b> <code>elif x == 5: print("x is 5")</code></li>
+        <li><b>For Loops:</b> <code>for i in range(5): print(i)</code></li>
+        <li><b>While Loops:</b> <code>while x < 5: x += 1</code></li>
+        <li><b>Functions:</b> <code>def my_function(): print("Hello!")</code></li>
+        <li><b>Function Arguments:</b> <code>def greet(name): print(f"Hello, {name}")</code></li>
+        <li><b>Return Statement:</b> <code>def add(a, b): return a + b</code></li>
+        <li><b>Lambda Functions:</b> <code>square = lambda x: x**2</code></li>
+        <li><b>Lists:</b> <code>my_list = [1, 2, 3]</code></li>
+        <li><b>List Comprehensions:</b> <code>squares = [x**2 for x in range(10)]</code></li>
+        <li><b>Tuples:</b> <code>my_tuple = (1, 2, 3)</code></li>
+        <li><b>Dictionaries:</b> <code>my_dict = {"name": "Alice", "age": 25}</code></li>
+        <li><b>Sets:</b> <code>my_set = {1, 2, 3}</code></li>
+        <li><b>Try-Except:</b> <code>try: x = 1 / 0 except ZeroDivisionError: print("Error")</code></li>
+        <li><b>Classes:</b> <code>class Person: def __init__(self, name): self.name = name</code></li>
+        <li><b>Inheritance:</b> <code>class Student(Person): pass</code></li>
+        <li><b>Import Statements:</b> <code>import math</code></li>
+        <li><b>Modules:</b> <code>import my_module</code></li>
+        <li><b>Reading Files:</b> <code>with open('file.txt') as f: content = f.read()</code></li>
+        <li><b>Writing Files:</b> <code>with open('file.txt', 'w') as f: f.write("Hello")</code></li>
+        <li><b>List Methods:</b> <code>my_list.append(4), my_list.pop()</code></li>
+        <li><b>Dictionary Methods:</b> <code>my_dict.keys(), my_dict.values()</code></li>
+        <li><b>Random Module:</b> <code>import random; random.choice([1, 2, 3])</code></li>
+        <li><b>Date and Time:</b> <code>from datetime import datetime; now = datetime.now()</code></li>
+        <li><b>Regular Expressions:</b> <code>import re; re.search('pattern', 'text')</code></li>
+        <li><b>Map Function:</b> <code>list(map(lambda x: x * 2, [1, 2, 3]))</code></li>
+        <li><b>Filter Function:</b> <code>list(filter(lambda x: x > 1, [1, 2, 3]))</code></li>
+        <li><b>Zip Function:</b> <code>list(zip([1, 2, 3], ['a', 'b', 'c']))</code></li>
+    </ol>
+</div>
+<div class="animation2">
+    <h1>Python Packages</h1>
+    <ol>
+        <li><b>NumPy:</b> <code>import numpy as np</code></li>
+        <li><b>Pandas:</b> <code>import pandas as pd</code></li>
+        <li><b>Matplotlib:</b> <code>import matplotlib.pyplot as plt</code></li>
+        <li><b>SciPy:</b> <code>import scipy</code></li>
+        <li><b>Scikit-learn:</b> <code>import sklearn</code></li>
+        <li><b>Requests:</b> <code>import requests</code></li>
+        <li><b>BeautifulSoup:</b> <code>from bs4 import BeautifulSoup</code></li>
+        <li><b>Flask:</b> <code>from flask import Flask</code></li>
+        <li><b>Django:</b> <code>import django</code></li>
+        <li><b>TensorFlow:</b> <code>import tensorflow as tf</code></li>
+        <li><b>Keras:</b> <code>from keras.models import Sequential</code></li>
+        <li><b>PyTorch:</b> <code>import torch</code></li>
+        <li><b>OpenCV:</b> <code>import cv2</code></li>
+        <li><b>Seaborn:</b> <code>import seaborn as sns</code></li>
+        <li><b>Plotly:</b> <code>import plotly.express as px</code></li>
+        <li><b>NLTK:</b> <code>import nltk</code></li>
+        <li><b>SymPy:</b> <code>import sympy</code></li>
+        <li><b>SQLAlchemy:</b> <code>from sqlalchemy import create_engine</code></li>
+        <li><b>Pygame:</b> <code>import pygame</code></li>
+        <li><b>Pytest:</b> <code>import pytest</code></li>
+    </ol>
+</div>
+</body>
+</html>

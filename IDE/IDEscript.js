@@ -103,6 +103,14 @@ require(['vs/editor/editor.main'], function () {
 
     async function main() {
         let pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/" });
+        await pyodide.loadPackage('micropip');
+        await pyodide.loadPackage('requests');
+
+        await pyodide.runPythonAsync(`
+        import micropip
+        
+        await micropip.install('httpx')
+    `);
         output.value += "Ready!\n";
         return pyodide;
     }
