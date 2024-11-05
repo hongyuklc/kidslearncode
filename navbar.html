@@ -2,27 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/DtzhGqz/Kids-Learn-Code-1.png">
-  <!-- navbar.html -->
-  <script>
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:5169558,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
+    <!-- navbar.html -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:5169558,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <style>
+        .top-bar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .box {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00639A;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
 
-
-
+        .box:hover {
+            background-color: #00557A;
+        }
+        /*Change .topbar margin-top back to 20px when no more top-bar */
+    </style>
 </head>
 <body>
-
+<body>
+<div class="top-bar">Ticket Sales For Our Coding Workshop Is Over! However, do join the waitlist if you still interested!<a href="https://www.eventbrite.sg/o/kids-learn-code-54821068923" class="box">
+    Join Now
+</a></div>
 <link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
 <nav class="navbar">
@@ -33,7 +61,7 @@
     <li><a href="/aboutus">About Us</a></li>
     <li><a href="/impact">Impact</a></li>
     <li><a href="/typesofworkshops">Workshops</a></li>
-    <!-- <li><a href="#">Contact Us</a></li> -->
+     <li><a href="#">Contact Us</a></li>
     <li><a href="/joinus">Join Us as a Volunteer</a></li>
 
 
