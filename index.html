@@ -22,7 +22,62 @@
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
+    <style>
+        h3{
+            font-size: 1.5em;
+            margin: 10px auto;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+            border-color: black;
+            border-radius: 8px;
+        }
+        .stats h2 {
+            color: #2980b9;
+            font-size: 2em;
+            margin-top: 20px;
+        }
 
+        .stats p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0s;
+        }
+
+        .stats .stat {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skill {
+            flex: 1 1 45%; /* Adjust the width as needed */
+            margin: 10px;
+            text-align: center;
+        }
+
+    </style>
     
 </head>
 
@@ -32,21 +87,50 @@
         <h1 style="font-family: Red Rose;" >Kids Learn Code</h1>
         <p style="font-family: Red Rose">Allowing all students to learn coding for free</p>
     </header>
-
+    <div class="stats">
+        <div class="stat">
+            <h2 data-target="200">0+</h2>
+            <p>Students participated in our workshops from 2022-2023</p>
+        </div>
+        <div class="stat">
+            <h2 data-target="70">0%</h2>
+            <p>Students who agree/strongly agree that our online workshops were enjoyable</p>
+        </div>
+    </div>
     <section class="intro">
         <h2>One Step at a Time</h2>
         <p>We aim to engage and ignite kids’ passion for coding in an evolving world, and we envision a world where every child has access to quality coding education.</p>
     </section>
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>Engage and ignite the passion for coding among all students in an evolving world.</p>
+    </section>
 
     <section class="skills-developed">
-        <h2>Skills Developed</h2>
-        <ul>
-            <li><strong>Confidence:</strong> Students are taught how to make slides and present them in our workshops.</li>
-            <li><strong>Originality:</strong> Students are encouraged to come up with new ideas using the problem statement.</li>
-            <li><strong>Digital Literacy:</strong> Students learn how to stay safe and code better with Computational Thinking.</li>
-            <li><strong>Engagement:</strong> Quizzes and hackathons keep students focused and satisfied during workshops!</li>
-        </ul>
-    </section>
+    <h2>Skills Developed</h2>
+    <div class="skills-container">
+        <div class="skill">
+            <h3>Confidence</h3>
+            <img src="/images/confidence.png" >
+            <p>Students are taught how to make slides and present them in our workshops.</p>
+        </div>
+        <div class="skill">
+            <h3>Originality</h3>
+            <img src="/images/originality.png">
+            <p>Students are encouraged to come up with new ideas using the problem statement.</p>
+        </div>
+        <div class="skill">
+            <h3>Digital Literacy</h3>
+            <img src="/images/digital_literacy.jpg" >
+            <p>Students learn how to stay safe and code better with Computational Thinking.</p>
+        </div>
+        <div class="skill">
+            <h3>Engagement</h3>
+            <img src="/images/engagement.png">
+            <p>Quizzes and hackathons keep students focused and satisfied during workshops!</p>
+        </div>
+    </div>
+</section>
     <section class="timeline">
         <h2>Timeline</h2>
         <ul>
@@ -79,4 +163,24 @@
     <script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
 
 </body>
+<script>document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.stat h2');
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 100; // Adjust increment to control the speed
+
+        const updateCounter = () => {
+            const currentValue = +counter.innerText.replace(/\D/g, ''); // Remove non-numeric characters
+            if (currentValue < target) {
+                counter.innerText = Math.ceil(currentValue + increment) + (counter.innerText.includes('%') ? '%' : '+');
+                setTimeout(updateCounter, 50); // Adjust the timeout for speed
+            } else {
+                counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+            }
+        };
+
+        updateCounter();
+    });
+});</script>
 </html>
