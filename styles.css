@@ -883,7 +883,7 @@ nav li:first-child {
 
 
 .sidebar {
-    margin-top: 60px; /*Change back to 0 when banner is over*/
+    padding-top: 50px; /*Change back to 0 when banner is over*/
     position: fixed;
     top: 0;
     right: 0;
