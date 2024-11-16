@@ -500,8 +500,8 @@ ul {
 footer {
     text-align: center;
     padding: 10px;
-    background: #00639A;
-    color: white;
+    background: white;
+    color: black;
 }
 
 .nav-bar {
