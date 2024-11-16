@@ -64,9 +64,12 @@
   </style>
 
 </head>
-<body>
-<p style="color: white;">Take note that the data stored through the Python program will only be stored for this session only. Your code will be auto-saved through the browser.</p>
-<div class="container-fluid">
+<body id="MESSAGE">
+<p>Please Sign In to use the IDE</p>
+</body>
+<body id="BODY">
+<p style="color: white;" id="notice">Take note that the data stored through the Python program will only be stored for this session only. Your code will be auto-saved through the browser.</p>
+<div id="IDE" class="container-fluid">
   <div id="editor-container">
     <div id="code"></div>
     <div class="output-section">
@@ -79,7 +82,6 @@
       <textarea id="output" name="output" rows="15" readonly></textarea>
     </div>
   </div>
-</div>
 </div>
 <script src='IDEscript.js'></script>
 
@@ -99,4 +101,5 @@
     document.getElementById('save').addEventListener('click', saveEditorContent);
 </script>
 </body>
+
 </html>
