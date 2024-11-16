@@ -47,19 +47,19 @@ export function logout() {
     });
 }
 // Check if user is logged in
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in
-        document.getElementById("CODEEDITOR").style.display = "block";
         document.getElementById("fields").style.display = 'none';
         document.getElementById("message").style.display = "block";
 
 
     } else {
         // No user is signed in
-        document.getElementById("CODEEDITOR").style.display = "none";
         document.getElementById("fields").style.display = 'block';
         document.getElementById("message").style.display = "none";
+
 
 
 

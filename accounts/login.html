@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../styles.css">
     <script type="module">
         import { login, logout } from './firebase-auth.js';
+
+        // Expose functions to the global window object
         window.login = login;
         window.logout = logout;
     </script>
@@ -106,6 +108,7 @@
 
 </body>
 <script>
+    // Check if the user is signed in
     document.getElementById("fields").style.display = 'block';
     document.getElementById("message").style.display = "none"
 </script>
