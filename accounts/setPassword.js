@@ -32,12 +32,15 @@ export function setPassword(){
             .then(() => {
                 // Password reset successful
                 // Display a success message
+                document.getElementById('result').textContent = "Password reset successful!";
                 console.log("Password reset successful!");
             })
             .catch((error) => {
                 // Handle errors
                 // Display an error message
                 console.error("Error resetting password:", error);
+                document.getElementById('result').textContent = "Error resetting password";
+
             });
     }
 
