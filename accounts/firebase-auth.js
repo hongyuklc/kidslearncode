@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -47,7 +47,20 @@ export function logout() {
     });
 }
 // Check if user is logged in
-
+export function resetPassword() {
+    const email = document.getElementById('email').value;
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            // Email sent.
+            document.getElementById('result').textContent = 'Password reset email sent!';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Password reset failed:', errorCode, errorMessage);
+            document.getElementById('result').textContent = `Password reset failed: Please send a valid email address`;
+        });
+}
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in
@@ -69,3 +82,4 @@ onAuthStateChanged(auth, (user) => {
 //Run "npx vite" to test out the code
 window.login = login;
 window.logout = logout;
+window.resetPassword = resetPassword;
