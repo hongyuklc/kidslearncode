@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "firebase": "^11.0.2",
     "monaco-themes": "^0.4.4"
   }
 }
