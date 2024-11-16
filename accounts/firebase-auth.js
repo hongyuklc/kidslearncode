@@ -67,3 +67,5 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 //Run "npx vite" to test out the code
+window.login = login;
+window.logout = logout;
