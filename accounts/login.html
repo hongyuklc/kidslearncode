@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module">
+        import { login } from './test.js';
+        window.login = login;
+    </script>
+    <script src="../script.js" ></script>
+    <div data-include="../navbar.html"></div>
+    <style>
+        h1 {
+            font-family: 'Red Rose', sans-serif;
+            color: white;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        input {
+            width: 80%;
+            max-width: 500px;
+            display: block;
+            margin: 10px auto;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: BarlowSemiCondensed;
+            font-size: 1em;
+            color: #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus {
+            outline: none;
+            border: 2px solid #4285f4;
+        }
+
+        button {
+            width: 80%;
+            max-width: 500px;
+            display: block;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #00639A;
+            color: white;
+            font-family: BarlowSemiCondensed;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #00557A;
+        }
+
+        #result {
+            text-align: center;
+            margin: 20px auto;
+            font-family: 'Red Rose', sans-serif;
+            font-size: 1.2em;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+                font-family: 'Red Rose', sans-serif;
+            }
+            input, button {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+    </style>
+    <script type="module" src="./test.js"></script>
+</head>
+<body>
+    <h1>Login</h1>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <div id="result"></div>
+</body>
+</html>
+<!-- Run npx vite to test out the code-->
