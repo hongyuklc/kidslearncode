@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendP
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
-    authDomain: "kids-learn-code.firebaseapp.com",
+    authDomain: "app.kidslearncode.org",
     projectId: "kids-learn-code",
     storageBucket: "kids-learn-code.firebasestorage.app",
     messagingSenderId: "244804111052",
