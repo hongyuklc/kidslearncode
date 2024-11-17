@@ -36,7 +36,7 @@ export function microsoftSignIn(){
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error('Sign in failed:', errorCode, errorMessage);
-            document.getElementById('result').textContent = `Sign in failed: ${errorMessage}`;
+            document.getElementById('result').textContent = `Sign in failed`;
         });
 };
 export function login() {
