@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-document.getElementById('microsoftSignIn').addEventListener('click', () => {
+export function microsoftSignIn(){
     const provider = new OAuthProvider('microsoft.com');
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -101,6 +101,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 //Run "npx vite" to test out the code
+window.microsoftSignIn=microsoftSignIn
 window.login = login;
 window.logout = logout;
 window.resetPassword = resetPassword;
