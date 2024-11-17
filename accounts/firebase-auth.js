@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, signInWithPopup, OAuthProvider } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -15,6 +15,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+document.getElementById('microsoftSignIn').addEventListener('click', () => {
+    const provider = new OAuthProvider('microsoft.com');
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // User signed in
+            const credential = OAuthProvider.credentialFromResult(result);
+            const accessToken = credential.accessToken;
+            const idToken = credential.idToken;
+            const user = result.user;
+            document.getElementById('result').textContent = `Welcome, ${user.displayName}`;
+            document.getElementById("fields").style.display = 'none';
+            document.getElementById("message").style.display = "block";
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Sign in failed:', errorCode, errorMessage);
+            document.getElementById('result').textContent = `Sign in failed: ${errorMessage}`;
+        });
+});
 export function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
