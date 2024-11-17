@@ -17,6 +17,9 @@ const auth = getAuth(app);
 
 export function microsoftSignIn(){
     const provider = new OAuthProvider('microsoft.com');
+    provider.setCustomParameters({
+        tenant: '29a457a8-7fc8-4bb1-8901-70de1244cfeb'
+    });
     signInWithPopup(auth, provider)
         .then((result) => {
             // User signed in
@@ -35,7 +38,7 @@ export function microsoftSignIn(){
             console.error('Sign in failed:', errorCode, errorMessage);
             document.getElementById('result').textContent = `Sign in failed: ${errorMessage}`;
         });
-});
+};
 export function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -101,7 +104,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 //Run "npx vite" to test out the code
-window.microsoftSignIn=microsoftSignIn
+window.microsoftSignIn = microsoftSignIn;
 window.login = login;
 window.logout = logout;
 window.resetPassword = resetPassword;
