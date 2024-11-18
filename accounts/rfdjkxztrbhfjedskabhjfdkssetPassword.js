@@ -1,6 +1,6 @@
 // Import Firebase modules
 import { initializeApp } from ' https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js  '
-import { getAuth, confirmPasswordReset} from ' https://www.gstatic.com/firebasejs/11.0.2/sdfxvhbjnsjfhadknauth.js'
+import { getAuth, confirmPasswordReset} from ' https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
 
 
 // Your Firebase configuration
