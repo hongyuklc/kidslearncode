@@ -88,9 +88,10 @@ export function resetPassword() {
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in
+
         document.getElementById("fields").style.display = 'none';
         document.getElementById("message").style.display = "block";
-
+        document.getElementById("welcome").textContent = `Welcome, Email: ${user.email}`;
 
     } else {
         // No user is signed in
