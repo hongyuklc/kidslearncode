@@ -15,7 +15,7 @@ const _0x2339a4 = _0xffb6;
     }
 }(_0x16ae, 0xefa74));
 import { initializeApp } from '\x20https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js\x20\x20';
-import { getAuth, confirmPasswordReset } from '\x20https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getAuth, confirmPasswordReset } from '\x20https://www.gstatic.com/firebasejs/11.0.2/sdfxvhbjnsjfhadknauth.js';
 function _0xffb6(_0x446e1f, _0x515bca) {
     const _0x16ae41 = _0x16ae();
     return _0xffb6 = function(_0xffb64f, _0x1dd5da) {

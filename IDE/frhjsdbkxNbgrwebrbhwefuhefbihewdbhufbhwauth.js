@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/sdfxvhbjnsjfhadknauth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -13,8 +13,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-onAuthStateChanged(auth, (user) => {
+const frhjsdbkxNbgrwebrbhwefuhefbihewdbhufbhwauth = getAuth(app);
+onAuthStateChanged(frhjsdbkxNbgrwebrbhwefuhefbihewdbhufbhwauth, (user) => {
     if (user) {
         console.log("Welcome")
         // User is signed in

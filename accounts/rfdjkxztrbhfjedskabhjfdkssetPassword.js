@@ -1,6 +1,6 @@
 // Import Firebase modules
 import { initializeApp } from ' https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js  '
-import { getAuth, confirmPasswordReset} from ' https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
+import { getAuth, confirmPasswordReset} from ' https://www.gstatic.com/firebasejs/11.0.2/sdfxvhbjnsjfhadknauth.js'
 
 
 // Your Firebase configuration
@@ -24,7 +24,7 @@ const mode = urlParams.get('mode');
 const oobCode = urlParams.get('oobCode');
 
 // Handle the password reset request
-export function setPassword(){
+export function rfdjkxztrbhfjedskabhjfdkssetPassword(){
     var newPassword = document.getElementById('newPassword').value;
     if (mode === 'resetPassword') {
         // Verify the request
@@ -45,4 +45,4 @@ export function setPassword(){
     }
 
 }
-window.setPassword = setPassword;
+window.setPassword = rfdjkxztrbhfjedskabhjfdkssetPassword;
