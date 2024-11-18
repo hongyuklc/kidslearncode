@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, signInWithPopup, OAuthProvider } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import {GoogleAuthProvider,getAuth, signInWithEmailAndPassword,  fetchSignInMethodsForEmail,onAuthStateChanged, signOut, sendPasswordResetEmail, signInWithPopup, OAuthProvider } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -39,6 +39,51 @@ export function microsoftSignIn(){
             document.getElementById('result').textContent = `Sign in failed`;
         });
 };
+const provider = new GoogleAuthProvider();
+auth.languageCode = 'it';
+provider.setCustomParameters({
+    'context': 'signin'
+});
+
+
+export function GoogleSignIn() {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+        .then(async (result) => {
+            // Get the signed-in user's email
+            const user = result.user;
+            const email = user.email;
+            // Check if the email is already registered
+
+            const signInMethods = await fetchSignInMethodsForEmail(auth, email);
+            if (signInMethods.length === 0) {
+
+                user.delete()
+                    .then(() => {
+                        console.log("Account deleted successfully.");
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting account:", error);
+                    });
+            } else {
+                // Proceed with sign-in
+                console.log("Signed in successfully:", user);
+
+                // You can access the Google Access Token and other details here
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // Do further actions with the signed-in user, if needed
+            }
+        })
+        .catch((error) => {
+            // Handle Errors here
+            console.error("Error during sign-in:", error);
+
+            // Optional: Provide user feedback
+        });
+}
 export function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -109,3 +154,4 @@ window.microsoftSignIn = microsoftSignIn;
 window.login = login;
 window.logout = logout;
 window.resetPassword = resetPassword;
+window.GoogleSignIn = GoogleSignIn;
