@@ -57,25 +57,7 @@ export function GoogleSignIn() {
             const email = user.email;
             // Check if the email is already registered
 
-            const signInMethods = await fetchSignInMethodsForEmail(auth, email);
-            if (signInMethods.length === 0) {
 
-                user.delete()
-                    .then(() => {
-                        console.log("Account deleted successfully.");
-                    })
-                    .catch((error) => {
-                        console.error("Error deleting account:", error);
-                    });
-            } else {
-                // Proceed with sign-in
-                console.log("Signed in successfully:", user);
-
-                // You can access the Google Access Token and other details here
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // Do further actions with the signed-in user, if needed
-            }
         })
         .catch((error) => {
             // Handle Errors here
