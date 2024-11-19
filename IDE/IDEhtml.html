@@ -70,8 +70,13 @@
 <div class="container-fluid">
   <div id="editor-container">
     <div id="code"></div>
+
     <div class="output-section">
       <div class="actions">
+        <select id="language-picker" class="btn-custom">
+          <option value="python">Python</option>
+          <option value="javascript">JavaScript</option>
+        </select>
         <button type="button" class="btn-custom" id="run">Run</button>
         <button type="button" class="btn-custom" id="save">Save</button>
       </div>
@@ -90,14 +95,12 @@
     const editorContent = editor.getValue();
     setCookie("pythonEditorContent", editorContent, 10000000);
     alert("Code saved successfully!");
+
   }
 
+  document.getElementById('save').addEventListener('click', saveEditorContent);
 
 
-
-
-
-    document.getElementById('save').addEventListener('click', saveEditorContent);
 </script>
 </body>
 </html>
