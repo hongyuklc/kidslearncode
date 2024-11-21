@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
 import {GoogleAuthProvider,getAuth, signInWithEmailAndPassword,  fetchSignInMethodsForEmail,onAuthStateChanged, signOut, sendPasswordResetEmail, signInWithPopup, OAuthProvider } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -116,9 +117,19 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in
 
+        const db = getFirestore(app);
+        const userRef = doc(db, 'users', user.email);
+
+        setDoc(userRef, {
+            displayName: user.displayName
+        }).then(() => {
+        }).catch((error) => {
+        });
+
+
         document.getElementById("fields").style.display = 'none';
         document.getElementById("message").style.display = "block";
-        document.getElementById("welcome").textContent = `Welcome, Email: ${user.email}`;
+        document.getElementById("welcome").textContent = `Welcome, ${user.displayName}`;
 
     } else {
         // No user is signed in
