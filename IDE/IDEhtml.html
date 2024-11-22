@@ -118,6 +118,9 @@
 
 <script src='IDEscript.js'></script>
 <script>
+  setInterval(() => {
+    location.reload();
+  }, 300000);
   function saveEditorContent() {
     alert("Code saved successfully! Please note that important code should not be stored in the browser and should be documented somewhere safe.");
     const editorContent = editor.getValue();
