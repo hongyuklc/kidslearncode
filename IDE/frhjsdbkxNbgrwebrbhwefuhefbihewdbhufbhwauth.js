@@ -18,8 +18,12 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('Welcome');
         document.getElementById('CODEEDITOR').style.display = 'block';
+        document.getElementById('message').style.display = 'none';
+
     } else {
         document.getElementById('CODEEDITOR').style.display = 'none';
+        document.getElementById('message').style.display = 'block';
+
 
     }
 });
