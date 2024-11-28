@@ -1,5 +1,5 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/sdfxvhbjnsjfhadknauth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDMDuqV-p_QwykhdCV1kjbWgg0VC6AiX1o",
@@ -11,23 +11,15 @@ const firebaseConfig = {
     measurementId: "G-KLT8C91VNS"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const frhjsdbkxNbgrwebrbhwefuhefbihewdbhufbhwauth = getAuth(app);
-onAuthStateChanged(frhjsdbkxNbgrwebrbhwefuhefbihewdbhufbhwauth, (user) => {
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
     if (user) {
-        console.log("Welcome")
-        // User is signed in
-        document.getElementById("CODEEDITOR").style.display = 'block';
-
-
+        console.log('Welcome');
+        document.getElementById('CODEEDITOR').style.display = 'block';
     } else {
-        // No user is signed in
-        document.getElementById("CODEEDITOR").style.display = 'none';
-
-
-
-
+        document.getElementById('CODEEDITOR').style.display = 'none';
 
     }
 });
