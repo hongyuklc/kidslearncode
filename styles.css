@@ -352,7 +352,7 @@ header {
     }
 }
 
-.animation1, .animation2, .animation3, .animation4, .animation5, .animation6, .animation7, .animation8, .animation9 {
+.animation0,.animation1, .animation2, .animation3, .animation4, .animation5, .animation6, .animation7, .animation8, .animation9 {
     position: relative;
     margin: 20px;
     padding: 15px;
@@ -362,6 +362,9 @@ header {
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.2s;
+}
+.animation0 {
+    animation-delay: 0s;
 }
 .animation1 {
     animation-delay: 0.2s;
