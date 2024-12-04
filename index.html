@@ -12,7 +12,38 @@
     
     <br>
 
-    <style>
+    <style>/* Countdown Timer Styles */
+    .timer-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .time {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    .time-number {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #2980b9; /* Matches the stats section's color scheme */
+    }
+
+    .time-label {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        margin-top: 5px;
+    }
         h3{
             font-size: 1.5em;
             margin: 10px auto;
@@ -66,7 +97,9 @@
             margin: 10px;
             text-align: center;
         }
-
+        h2{
+            margin: 10px auto;
+        }
     </style>
     
 </head>
@@ -77,7 +110,31 @@
     <h1 style="font-family: Red Rose;" >Kids Learn Code</h1>
     <p style="font-family: Red Rose">Allowing all students to learn coding for free</p>
     </header>
+    <div class="animation0">
+        <h2>It's almost the end of 2024. Let's countdown to the start of a fresh new year!</h2>
+        <p>We will be launching a brand new self-learning platform for Kids to Learn Code next year</p>
+        <p>Stay tuned for more updates and Merry Christmas and have a Happy New Year!</p>
+        <div class="timer-container">
+            <div class="time">
+                <div class="time-number" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+            <div class="time">
+                <div class="time-number" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="time">
+                <div class="time-number" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="time">
+                <div class="time-number" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
 
+        <h2>See you next year!</h2>
+    </div>
 
 
     <div class="stats">
@@ -95,6 +152,7 @@
         <iframe src="https://scratch.mit.edu/projects/1105264351/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         <p>How to Play? Press A/D to move Right/Left and collect trash. Do answer the questions at the same time!</p>
     </div>
+
     <section class="intro">
         <h2>One Step at a Time</h2>
         <p>We aim to engage and ignite kids’ passion for coding in an evolving world, and we envision a world where every child has access to quality coding education.</p>
@@ -162,24 +220,61 @@
     <script src="//code.tidio.co/erjlitousguh6i2nteif96hubirmdwdp.js" async></script>
 
 </body>
-<script>document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('.stat h2');
 
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const increment = target / 100; // Adjust increment to control the speed
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.stat h2');
 
-        const updateCounter = () => {
-            const currentValue = +counter.innerText.replace(/\D/g, ''); // Remove non-numeric characters
-            if (currentValue < target) {
-                counter.innerText = Math.ceil(currentValue + increment) + (counter.innerText.includes('%') ? '%' : '+');
-                setTimeout(updateCounter, 50); // Adjust the timeout for speed
-            } else {
-                counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target'); // Target number
+            const duration = 2000; // Animation duration in ms
+            const startTime = performance.now();
+
+            const updateCounter = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1); // Ensure progress doesn't exceed 1
+
+                const currentValue = Math.floor(progress * target);
+                counter.innerText = currentValue + (counter.innerText.includes('%') ? '%' : '+');
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter); // Continue animation
+                } else {
+                    counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+                }
+            };
+
+            requestAnimationFrame(updateCounter);
+        });
+
+        const targetDate = new Date('January 1, 2025 00:00:00').getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
             }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
         };
 
-        updateCounter();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
     });
-});</script>
+</script>
 </html>
