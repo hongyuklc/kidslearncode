@@ -105,10 +105,11 @@
             min-width: 100%;
             opacity: 0.5;
         }
-
+    /* Add pixelated effect initially */
+    /* Initial blur effect */
     .blurred {
-        filter: blur(20px);
-        transition: filter 0.1s ease-out;
+        filter: blur(20px); /* Start fully blurred */
+        transition: filter 0.1s ease-out; /* Smooth transition for blur effect */
     }
     </style>
     
@@ -118,7 +119,7 @@
 <body class = "body">
 <header style="position: relative; text-align: center; color: white;">
     <img class="header blurred"
-         src="https://i.ibb.co/5sd2B3H/IMG-0390.jpg"
+         src="images/IMG_0390.jpeg"
          style="width: 100%; height: auto;">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <h1 style="font-family: Red Rose;">Kids Learn Code</h1>
@@ -242,7 +243,7 @@
 
         const element = document.querySelector('.animation0');
         if (element) {
-            const elementTop = element.getBoundingClientRect().top + window.scrollY;
+            const elementTop = element.getBoundingClientRect().top + window.scrollY; // Calculate its position from the top of the page
             window.scrollTo({
                 top: elementTop - 80,
                 behavior: 'smooth'
