@@ -13,6 +13,7 @@
     <br>
 
     <style>/* Countdown Timer Styles */
+
     .timer-container {
         display: flex;
         justify-content: center;
@@ -100,16 +101,30 @@
         h2{
             margin: 10px auto;
         }
+        .header{
+            min-width: 100%;
+            opacity: 0.5;
+        }
+
+    .blurred {
+        filter: blur(20px);
+        transition: filter 0.1s ease-out;
+    }
     </style>
     
 </head>
 
 
 <body class = "body">
-    <header >
-    <h1 style="font-family: Red Rose;" >Kids Learn Code</h1>
-    <p style="font-family: Red Rose">Allowing all students to learn coding for free</p>
-    </header>
+<header style="position: relative; text-align: center; color: white;">
+    <img class="header blurred"
+         src="https://i.ibb.co/5sd2B3H/IMG-0390.jpg"
+         style="width: 100%; height: auto;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h1 style="font-family: Red Rose;">Kids Learn Code</h1>
+        <p style="font-family: Red Rose;">Allowing all students to learn coding for free</p>
+    </div>
+</header>
     <div class="animation0">
         <h2>It's almost the end of 2024. Let's countdown to the start of a fresh new year!</h2>
         <p>We will be launching a brand new self-learning platform for Kids to Learn Code next year</p>
@@ -222,59 +237,83 @@
 </body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const counters = document.querySelectorAll('.stat h2');
+    window.addEventListener('load', () => {
 
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target'); // Target number
-            const duration = 2000; // Animation duration in ms
-            const startTime = performance.now();
 
-            const updateCounter = (currentTime) => {
-                const elapsedTime = currentTime - startTime;
-                const progress = Math.min(elapsedTime / duration, 1); // Ensure progress doesn't exceed 1
+        const element = document.querySelector('.animation0');
+        if (element) {
+            const elementTop = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementTop - 80,
+                behavior: 'smooth'
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat h2');
 
-                const currentValue = Math.floor(progress * target);
-                counter.innerText = currentValue + (counter.innerText.includes('%') ? '%' : '+');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const startTime = performance.now();
 
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter); // Continue animation
-                } else {
-                    counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+                const updateCounter = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+
+                    const currentValue = Math.floor(progress * target);
+                    counter.innerText = currentValue + (counter.innerText.includes('%') ? '%' : '+');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+                    }
+                };
+
+                requestAnimationFrame(updateCounter);
+            });
+
+            const targetDate = new Date('January 1, 2025 00:00:00').getTime();
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('days').innerText = "00";
+                    document.getElementById('hours').innerText = "00";
+                    document.getElementById('minutes').innerText = "00";
+                    document.getElementById('seconds').innerText = "00";
+                    return;
                 }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
             };
 
-            requestAnimationFrame(updateCounter);
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
         });
-
-        const targetDate = new Date('January 1, 2025 00:00:00').getTime();
-
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                clearInterval(countdownInterval);
-                document.getElementById('days').innerText = "00";
-                document.getElementById('hours').innerText = "00";
-                document.getElementById('minutes').innerText = "00";
-                document.getElementById('seconds').innerText = "00";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-        };
-
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
     });
+    window.addEventListener("scroll", () => {
+        const img = document.querySelector('.header');
+        const scrollTop = window.scrollY;
+        const maxScroll = window.innerHeight;
+
+
+        const blurValue = Math.max(0, 20 - (scrollTop / maxScroll) * 50);
+
+        // Apply the calculated blur dynamically
+        img.style.filter = `blur(${blurValue}px)`;
+    });
+
 </script>
 </html>
