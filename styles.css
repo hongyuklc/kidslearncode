@@ -352,7 +352,7 @@ header {
     }
 }
 
-.animation0,.animation1, .animation2, .animation3, .animation4, .animation5, .animation6, .animation7, .animation8, .animation9 {
+.animation0,.animation1, .animation2, .animation3, .animation4, .animation5, .animation6, .animation7, .animation8, .animation9, .message {
     position: relative;
     margin: 20px;
     padding: 15px;
